@@ -1,13 +1,12 @@
 package model.shapeManipulation;
 
-public interface IShape_Subject {
+import java.util.List;
 
-    void register_Observer(IShape_Observer observer);
-
-    void notify_Observers();
+public interface IShape_List {
 
     void addShape(Create_Shape shape);
 
     void removeShape(Create_Shape shape);
 
+    List<Create_Shape> grab_List();
 }

@@ -4,43 +4,43 @@ package model.shapeManipulation;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Master_List implements IShape_Subject, IShapeList {
+public class Master_List implements IShape_Subject, IShape_List {
 
     private final List<IShape_Observer> observers = new ArrayList<IShape_Observer>();
 
-    public List<CreateShape> shapeList;
+    public List<Create_Shape> shape_List;
 
-    public Master_List(List<CreateShape> shapeList) {
-        this.shapeList = shapeList;
+    public Master_List(List<Create_Shape> shape_List) {
+        this.shape_List = shape_List;
     }
 
     @Override
-    public void addShape(CreateShape shape) {
-        shapeList.add(shape);
-        notifyObservers();
+    public void addShape(Create_Shape shape) {
+        shape_List.add(shape);
+        notify_Observers();
     }
 
     @Override
-    public void removeShape(CreateShape shape) {
-        shapeList.remove(shape);
-        notifyObservers();
+    public void removeShape(Create_Shape shape) {
+        shape_List.remove(shape);
+        notify_Observers();
     }
 
     @Override
-    public void registerObserver(IShape_Observer observer) {
+    public void register_Observer(IShape_Observer observer) {
         observers.add(observer);
     }
 
 
     @Override
-    public void notifyObservers() {
+    public void notify_Observers() {
         for (IShape_Observer observer : observers) {
             observer.update();
         }
     }
 
     @Override
-    public List<CreateShape> grabList() {
-        return shapeList;
+    public List<Create_Shape> grab_List() {
+        return shape_List;
     }
 }
